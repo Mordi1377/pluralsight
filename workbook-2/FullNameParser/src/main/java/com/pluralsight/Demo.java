@@ -1,20 +1,48 @@
 package com.pluralsight;
-import java.sql.SQLOutput;
-import java.util.EventListener;
-import java.util.Scanner;
 
+    class Human
+    {
 
-public class Demo {
+        private int age = 11;
+        private String name = "Mordecai";
 
-    public static void main(String[] args) {
+        public Human()
+        {
+            age = 25;
+            name = "morde";
+        }
 
-        StringBuffer sb = new StringBuffer("Mordecai");
-        sb.append(st" Anagaw ");
+        public String getName() {
+            return name;
+        }
 
-        sb.insert(6, str)
-        System.out.println(sb);
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
     }
-}
+
+        public class Demo {
+
+            public static void main(String a[]) {
+
+                Human obj = new Human();
+//            obj.age = 11;
+//            obj.name = "Mordecai";
+
+                System.out.println(obj.getName() + " : " + obj.getAge());
+
+            }
+
+
+        }
 
 
 
