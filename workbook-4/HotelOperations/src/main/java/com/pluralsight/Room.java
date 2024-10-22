@@ -51,4 +51,16 @@ public class Room {
             return false;
         }
     }
+
+    public void checkIn() {
+        this.isOccupied = true;
+        this.isDirty = true;
+    }
+    public void checkOut() {
+        this.isOccupied = false;
+    }
+    public void cleanRoom() {
+        this.isDirty = false;
+    }
+
 }

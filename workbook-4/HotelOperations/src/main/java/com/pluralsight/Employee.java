@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.security.PublicKey;
+import java.time.LocalTime;
 
 public class Employee {
     private int employeeId;
@@ -8,6 +9,7 @@ public class Employee {
     private String department;
     private double payRate;
     private double hoursWorked;
+    private double latestPunchIn;
 
     public int getEmployeeId() {
         return employeeId;
@@ -74,6 +76,15 @@ public class Employee {
         }else {
             return hoursWorked - 40;
         }
+    }
+
+    public void punchIn(double startTime) {
+        this.latestPunchIn = startTime;
+    }
+    public double punchOut(double endTime) {
+        double hoursLatestShift = endTime - this.latestPunchIn;
+        this.hoursWorked += hoursLatestShift;
+        return hoursLatestShift;
     }
 
 }
