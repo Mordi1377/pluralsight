@@ -44,23 +44,28 @@ public class Room {
     public boolean isDirty() {
         return isDirty;
     }
+
     public boolean isAvailable() {
-        if (!isOccupied && !isDirty) {
-            return true;
-        }else {
-            return false;
-        }
+        return !isOccupied && !isDirty;
     }
 
-    public void checkIn() {
+    public boolean checkIn() {
+        if (isOccupied || isDirty) {
+            return false;
+        }
         this.isOccupied = true;
         this.isDirty = true;
+        return true;
     }
+
     public void checkOut() {
+        if (!isOccupied) {
+            throw new IllegalStateException("Room is already available, cannot check out.");
+        }
         this.isOccupied = false;
     }
+
     public void cleanRoom() {
         this.isDirty = false;
     }
-
 }
