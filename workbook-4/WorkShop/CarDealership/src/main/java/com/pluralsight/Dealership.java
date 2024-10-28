@@ -9,25 +9,26 @@ public class Dealership {
     private String phone;
     private ArrayList<Vehicle> inventory;
 
-    public Dealership(String name, String address, String phone, ArrayList<Vehicle> inventory) {
+    public Dealership(String name, String address, String phone) {
         this.name = name;
         this.address = address;
         this.phone = phone;
-        this.inventory = new ArrayList<>();
+        this.inventory = new ArrayList<>(inventory);
     }
 
     public void addVehicle(Vehicle vehicle) {
         inventory.add(vehicle);
     }
 
-//    public List<Vehicle> getAllVehicles() throws IOException {
+    public List<Vehicle> getAllVehicles() throws IOException {
 //
-//        List<Vehicle>allVehicle = DealershipFileManager.getInventory();
-//        for (int i=0; i<allVehicle.size(); i++) {
+//        List<Vehicle> allVehicle = DealershipFileManager.getInventory();
+//        for (int i = 0; i < allVehicle.size(); i++) {
 //            Vehicle vehicle = allVehicle.get(i);
 //        }
 
-//        return allVehicle;
+        return new ArrayList<>(inventory);
+    }
 
     public List<Vehicle> getVehiclesByPrice(double min, double max) {
         return null;

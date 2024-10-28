@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class DealershipFileManager {
-    public static List<Vehicle> getInventory() throws IOException {
+    public static List<Vehicle> getInventory(String filePath) throws IOException {
         List<Vehicle> inventory = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new FileReader("CarsInventory.txt"));
         bufferedReader.readLine();
