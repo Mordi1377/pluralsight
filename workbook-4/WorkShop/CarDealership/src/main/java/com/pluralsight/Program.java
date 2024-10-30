@@ -8,8 +8,11 @@ public class Program {
     public static void main(String[] args) {
         DealershipFileManager fileManager = new DealershipFileManager();
 
+        String filePath = "CarsInventory.txt";
+        UserInterface ui  = new UserInterface(filePath);
+
         try {
-            List<Vehicle> inventory = DealershipFileManager.getInventory();
+            List<Vehicle> inventory = DealershipFileManager.getInventory(filePath);
 
             System.out.println("Loaded Inventory: ");
             for (Vehicle vehicle : inventory) {
@@ -19,6 +22,8 @@ public class Program {
             System.out.println("Error loading inventory: " + e.getMessage());
 
         }
+
+        ui.display();
     }
 
 
