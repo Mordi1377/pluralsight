@@ -1,35 +1,43 @@
 package com.pluralsight;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class NorthwindTraders {
 
     public static void main(String[] args) throws SQLException {
 
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/northwind", "root", "yearup24");
-
-        Statement statement = connection.createStatement();
-
-        String query = "SELECT productid, productname, unitprice, unitsinstock FROM products";
-
-        ResultSet rs = statement.executeQuery(query);
-
-        // Print header for rows of information
-        System.out.printf("%-5s %-20s %-10s %-10s%n", "Id", "Name", "Price", "Stock");
-        System.out.println("----- -------------------- ---------- ----------");
-
-
-        while(rs.next()) {
-            int productId = rs.getInt("productid");
-            String productName = rs.getString("productname");
-            double unitPrice = rs.getDouble("unitprice");
-            int unitsInStock = rs.getInt("unitsinstock");
-
-            System.out.printf("%-5d %-20s %-10.2f %-10d%n", productId, productName, unitPrice, unitsInStock);
-
-        }
+        displayAllProducts(connection);
+        displayProductById(connection);
         connection.close();
-
     }
 
+    public static void displayAllProducts(Connection connection) throws SQLException {
+        System.out.println("Pelase Enter the product ID number Please?");
+        String query = "SELECT ProductName, productId FROM Products";
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        ResultSet rs = statement.executeQuery();
+
+        while (rs.next()) {
+            System.out.println(rs.getString("ProductName") + " - " + rs.getString("ProductId"));
+        }
+    }
+
+    public static void displayProductById(Connection connection) throws SQLException {
+        Scanner scanner = new Scanner(System.in);
+        int id = scanner.nextInt();
+        scanner.close();
+
+        String query = "SELECT ProductName, productId FROM Products WHERE ProductId  = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+
+        statement.setInt(1, id);
+        ResultSet rs = statement.executeQuery();
+
+        while (rs.next()) {
+            System.out.println(rs.getString("ProductName") + " - " + rs.getString("ProductId"));
+        }
+    }
 }
