@@ -2,7 +2,7 @@
 
 ### mordecaianagaw@gmail.com
 
-#### Aspiring Software Developer with a strong foundation in programming languages like JavaScript, Python, and HTML/CSS. Skilled in both front-end and back-end development through self-study and hands-on projects. Adept at problem-solving, collaborating with teams, and eager to apply technical skills in a professional environment. Committed to continuous learning and growth, with a focus on delivering high-quality software solutions.
+#### Aspiring Software Developer with a strong foundation in programming languages like Java, Go, SQL and HTML/CSS. Skilled in both front-end and back-end development through self-study and hands-on projects. Adept at problem-solving, collaborating with teams, and eager to apply technical skills in a professional environment. Committed to continuous learning and growth, with a focus on delivering high-quality software solutions.
 ## RELEVANT SKILLS 
 #### Professional Skills: Team Player, customer service, Attention to detail 
 #### Programming Proficiency: Strong understanding of JavaScript, HTML/CSS, and SQL.
